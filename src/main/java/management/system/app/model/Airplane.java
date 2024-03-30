@@ -1,24 +1,25 @@
 package management.system.app.model;
 
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "airplanes")
 public class Airplane {
     @Id
@@ -33,21 +34,21 @@ public class Airplane {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "air_company_id")
     private AirCompany airCompany;
 
     @Column(name = "number_of_flights", nullable = false)
     private Integer numberOfFlights;
 
-    @Column(name = "flight_distance", nullable = false)
+    @Column(name = "flight_distance")
     private Double flightDistance;
 
     @Column(name = "fuel_capacity", nullable = false)
     private Double fuelCapacity;
 
     @Column(name = "airplane_type", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Enumerated(EnumType.STRING)
     private Type airplaneType;
 
     @Column(name = "created_at", nullable = false)
@@ -58,5 +59,9 @@ public class Airplane {
         CARGO,
         BUSINESS,
         AIRSHIP
+    }
+
+    public Airplane(Long id) {
+        this.id = id;
     }
 }
