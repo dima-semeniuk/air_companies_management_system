@@ -21,9 +21,9 @@ insert into flights (flight_status, air_company_id, airplane_id, departure_count
 insert into flights (flight_status, air_company_id, airplane_id, departure_country, destination_country, distance, estimated_flight_time, started_at, delay_started_at, ended_at, created_at) values
 ('COMPLETED', 4, 6, 'Ukraine', 'Poland', 900, '02:40', '2024-03-26T17:15:29', '2024-03-26T19:55:31', '2024-03-26T20:15:31', '2024-03-25T18:12:31');
 insert into flights (flight_status, air_company_id, airplane_id, departure_country, destination_country, distance, estimated_flight_time, started_at, created_at) values
-('ACTIVE', 3, 5, 'Ukraine', 'Poland', 1200, '3:10', '2024-03-29T12:41:31', '2024-03-27T11:46:31'),
-('ACTIVE', 3, 4, 'Ukraine', 'Canada', 7200, '28:55', '2024-03-28T16:40:31', '2024-03-27T11:12:31'),
-('ACTIVE', 4, 6, 'Ukraine', 'Turkey', 1420, '2:25', '2024-03-29T08:44:31', '2024-03-27T14:22:31');
+('ACTIVE', 3, 5, 'Ukraine', 'Poland', 1200, '3:10', '2024-03-30T12:41:31', '2024-03-27T11:46:31'),
+('ACTIVE', 3, 4, 'Ukraine', 'Canada', 7200, '28:55', '2024-03-29T16:40:31', '2024-03-27T11:12:31'),
+('ACTIVE', 4, 6, 'Ukraine', 'Turkey', 1420, '2:25', '2024-03-30T08:44:31', '2024-03-27T14:22:31');
 insert into flights (flight_status, air_company_id, airplane_id, departure_country, destination_country, distance, estimated_flight_time, started_at, delay_started_at, created_at) values
 ('DELAYED', 2, 1, 'Ukraine', 'Switzerland', 2200, '4:10', '2024-03-27T16:10:31', '2024-03-27T20:20:31', '2024-03-24T15:12:31'),
 ('DELAYED', 1, 2, 'Ukraine', 'Italy', 1900, '3:40', '2024-03-27T17:00:31', '2024-03-27T20:40:31', '2024-03-25T22:18:31');
