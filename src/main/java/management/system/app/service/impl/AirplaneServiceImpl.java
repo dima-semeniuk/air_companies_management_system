@@ -1,5 +1,7 @@
 package management.system.app.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import management.system.app.dto.airplane.AirplaneRequestDto;
@@ -10,6 +12,7 @@ import management.system.app.model.AirCompany;
 import management.system.app.model.Airplane;
 import management.system.app.repository.AirplaneRepository;
 import management.system.app.service.AirplaneService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +32,13 @@ public class AirplaneServiceImpl implements AirplaneService {
         }
 
         return airplaneMapper.toDto(airplaneRepository.save(airplane));
+    }
+
+    @Override
+    public List<AirplaneResponseDto> findAll(Pageable pageable) {
+        return airplaneRepository.findAll(pageable).stream()
+                .map(airplaneMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override

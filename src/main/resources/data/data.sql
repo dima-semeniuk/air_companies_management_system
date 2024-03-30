@@ -16,7 +16,7 @@ insert into airplanes (name, factory_serial_number, air_company_id, number_of_fl
 
 
 insert into flights (flight_status, air_company_id, airplane_id, departure_country, destination_country, distance, estimated_flight_time, started_at, ended_at, created_at) values
-('COMPLETED', 3, 4, 'Ukraine', 'Italy', 1900, '03:55', '2024-03-26T10:15:31', '2024-03-26T14:10:31', '2024-03-25T15:12:31'),
+('COMPLETED', 3, 4, 'Ukraine', 'Italy', 1900, '03:55', '2024-03-26T10:15:31', '2024-03-26T14:11:31', '2024-03-25T15:12:31'),
 ('COMPLETED', 3, 5, 'Ukraine', 'Turkey', 1300, '03:15', '2024-03-26T14:12:31', '2024-03-26T17:25:31', '2024-03-25T15:22:31');
 insert into flights (flight_status, air_company_id, airplane_id, departure_country, destination_country, distance, estimated_flight_time, started_at, delay_started_at, ended_at, created_at) values
 ('COMPLETED', 4, 6, 'Ukraine', 'Poland', 900, '02:40', '2024-03-26T17:15:29', '2024-03-26T19:55:31', '2024-03-26T20:15:31', '2024-03-25T18:12:31');
