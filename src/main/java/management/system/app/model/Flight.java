@@ -1,22 +1,24 @@
 package management.system.app.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.time.Duration;
-import java.time.LocalDateTime;
+import javax.persistence.Table;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
+@Table(name = "flights")
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,13 +30,13 @@ public class Flight {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "air_company_id")
     private AirCompany airCompany;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "airplane_id")
     private Airplane airplane;
 
@@ -45,10 +47,10 @@ public class Flight {
     private String destinationCountry;
 
     @Column(nullable = false)
-    private Double distance;
+    private Integer distance;
 
     @Column(name = "estimated_flight_time", nullable = false)
-    private Duration estimatedFlightTime;
+    private String estimatedFlightTime;
 
     @Column(name = "started_at")
     private LocalDateTime startedAt;

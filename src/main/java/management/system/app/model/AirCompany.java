@@ -1,18 +1,19 @@
 package management.system.app.model;
 
-import lombok.Data;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "air_companies")
 public class AirCompany {
     @Id
@@ -23,15 +24,19 @@ public class AirCompany {
     private String name;
 
     @Column(name = "company_type", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Enumerated(EnumType.STRING)
     private Type companyType;
 
     @Column(name = "founded_at", nullable = false)
-    private LocalDate foundedAt;
+    private Integer foundedAt;
 
     public enum Type {
         PJSC,
         LLC,
         CORPORATION
+    }
+
+    public AirCompany(Long id) {
+        this.id = id;
     }
 }
