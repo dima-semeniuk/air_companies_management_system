@@ -1,10 +1,9 @@
 package management.system.app.controller;
 
-import java.util.List;
-import javax.validation.Valid;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import management.system.app.dto.flight.FlightRequestDto;
 import management.system.app.dto.flight.FlightResponseDto;
@@ -32,7 +31,8 @@ public class FlightController {
 
     @GetMapping("/by-company-name-and-status")
     @Operation(summary = "Get all flights by air company name and flight status",
-            description = "Show information about all flights by air company name  and flight status")
+            description = "Show information about all flights by air company name "
+                    + "and flight status")
     public List<FlightResponseDto> findAllByCompanyNameAndStatus(
             @RequestParam(name = "air-company-name") String name,
             @RequestParam(name = "status") Flight.Status flightStatus,
@@ -43,7 +43,8 @@ public class FlightController {
 
     @GetMapping("/active-over-limit")
     @Operation(summary = "Get all active lights, that are longer than 24 hours",
-            description = "Show information about all active flights, starts more than 24 hours ago")
+            description = "Show information about all active flights, starts more "
+                    + "than 24 hours ago")
     public List<FlightResponseDto> findAllActiveOverLimit(Pageable pageable) {
         return flightService.findAllActiveFlightsOverLimit(pageable);
     }

@@ -1,9 +1,8 @@
 package management.system.app.controller;
 
-import javax.validation.Valid;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import management.system.app.dto.airplane.AirplaneRequestDto;
 import management.system.app.dto.airplane.AirplaneResponseDto;
