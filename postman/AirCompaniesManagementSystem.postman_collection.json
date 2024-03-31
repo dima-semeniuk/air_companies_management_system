@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "3431a3ae-48c3-4973-9f0f-7623b852326b",
+		"name": "AirCompaniesManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31723723"
+	},
+	"item": [
+		{
+			"name": "AirCompanies",
+			"item": [
+				{
+					"name": "getAllCompanies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/air-companies",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"air-companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCompanyById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/air-companies/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"air-companies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewCompany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Air France–KLM\",\n    \"companyType\": \"CORPORATION\",\n    \"foundedAt\": 2024\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/air-companies",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"air-companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAirCompanyById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Air France–KLM\",\n    \"companyType\": \"LLC\",\n    \"foundedAt\": 2020\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/air-companies/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"air-companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompanyById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/air-companies/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"air-companies",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Airplanes",
+			"item": [
+				{
+					"name": "changeAirCompany",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"airCompanyId\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/airplanes/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"airplanes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewPlane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Airplane7\",\n    \"factorySerialNumber\":\"123DJGG1276\",\n    \"airCompanyId\": 4,\n    \"numberOfFlights\": 34,\n    \"flightDistance\":\"45230\",\n    \"fuelCapacity\": 10140,\n    \"airplaneType\":\"AIRSHIP\",\n    \"createdAt\": \"2017-05-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/airplanes",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"airplanes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAirplanes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/airplanes",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"airplanes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flights",
+			"item": [
+				{
+					"name": "findAllFlightsByCompanyNameAndFlightStatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flightStatus\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/flights/by-company-name-and-status?status=PENDING&air-company-name=",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"flights",
+								"by-company-name-and-status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								},
+								{
+									"key": "air-company-name",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "airplane.numberOfFlights",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllFlightsIsActiveAndMore24Hours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/flights/active-over-limit",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"flights",
+								"active-over-limit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewFlight",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"airCompanyId\": 3,\n    \"airplaneId\": 2,\n    \"departureCountry\": \"Ukraine\",\n    \"destinationCountry\": \"Portugale\",\n    \"distance\": 3350,\n    \"estimatedFlightTime\": \"04:25\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/flights",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeFlightStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flightStatus\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/flights/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"flights",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fidAllFlightsIsCompletedAndOverDue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/flights/completed-overdue",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"flights",
+								"completed-overdue"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
