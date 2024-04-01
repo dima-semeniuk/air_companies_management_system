@@ -26,7 +26,7 @@ information about planes, air companies, and flights.
 ## How you can start up the application
 
 The project is a server part, and is able to receive requests from clients (browsers), process them,
-and return the response. Postman will also be very useful for testing the application, and see how it works. So you need:
+and return the response. Postman will be very useful for testing the application, and see how it works. So you need:
 
 * [download](https://github.com/dima-semeniuk/air_companies_management_system/blob/main/postman/AirCompaniesManagementSystem.postman_collection.json) 
 the Postman collection from my GitHub repository and import it into your desktop Postman or web Postman Api Platform
@@ -45,7 +45,7 @@ After building images, run the command `docker-compose up` to start application
 
 #### AirCompany controller
 
->  POST method: /localhost:8088/api/air-companies
+>   POST method: /localhost:8088/api/air-companies
 
 This endpoint is for adding a new air company to the database.Example of request body:
 
@@ -59,9 +59,9 @@ This endpoint is for adding a new air company to the database.Example of request
 
 <br>
 
->  >  PUT method: /localhost:8088/api/air-companies/{id}
+>   PUT method: /localhost:8088/api/air-companies/{id}
 
-This endpoint is for updating information about air company by its 'id'.Example of request body:
+This endpoint is for updating information about air company by its 'id'. Example of request body:
 
 ```json
 {
@@ -72,19 +72,19 @@ This endpoint is for updating information about air company by its 'id'.Example 
 ```
 <br>
 
->  GET method: /localhost:8088/api/air-companies/{id}
+>   GET method: /localhost:8088/api/air-companies/{id}
 
 This endpoint shows information about air company by its 'id'
 
 <br>
 
->  GET method: /localhost:8088/api/air-companies
+>   GET method: /localhost:8088/api/air-companies
 
 This endpoint shows information about all air companies
 
 <br>
 
->  DELETE method: /api/air-companies/{id}
+>   DELETE method: /api/air-companies/{id}
 
 This endpoint is for deleting air company from database by its 'id'
 
@@ -92,15 +92,15 @@ This endpoint is for deleting air company from database by its 'id'
 
 #### Airplane controller
 
->  GET method: /localhost:8088/api/airplanes
+>   GET method: /localhost:8088/api/airplanes
 
 This endpoint shows information about all airplanes
 
 <br>
 
->  >  PATCH method: /localhost:8088/api/airplanes/{id}
+>   PATCH method: /localhost:8088/api/airplanes/{id}
 
-This endpoint is for changing air company for airplane by its 'id'.Example of request body:
+This endpoint is for changing air company for airplane by its 'id'. Example of request body:
 
 ```json
 {
@@ -110,7 +110,7 @@ This endpoint is for changing air company for airplane by its 'id'.Example of re
 
 <br>
 
->  POST method: /localhost:8088/api/airplanes
+>   POST method: /localhost:8088/api/airplanes
 
 This endpoint is for adding a new airplanes to the database.Example of request body:
 
@@ -131,16 +131,17 @@ This endpoint is for adding a new airplanes to the database.Example of request b
 
 #### Flight controller
 
->  POST method: /localhost:8088/api/flights
+>   POST method: /localhost:8088/api/flights
 
-This endpoint is for adding a new flights to the database.Example of request body:
+This endpoint is for adding a new flights to the database. The `Estimated flight time` field must be set 
+as a string and in the format `hh:mm`. Example of request body:
 
 ```json
 {
   "airCompanyId": 3,
   "airplaneId": 2,
   "departureCountry": "Ukraine",
-  "destinationCountry": "Portugale",
+  "destinationCountry": "Portugal",
   "distance": 3350,
   "estimatedFlightTime": "04:25"
 }
@@ -148,9 +149,9 @@ This endpoint is for adding a new flights to the database.Example of request bod
 
 <br>
 
->  >  PATCH method: /localhost:8088/api/flights/{id}
+>   PATCH method: /localhost:8088/api/flights/{id}
 
-This endpoint is for changing flight status for flight by its 'id'.Example of request body:
+This endpoint is for changing flight status for flight by its 'id'. Example of request body:
 
 ```json
 {
@@ -160,23 +161,21 @@ This endpoint is for changing flight status for flight by its 'id'.Example of re
 
 <br>
 
->  GET method: /localhost:8088/api/flights/by-company-name-and-status
+>   GET method: /localhost:8088/api/flights/by-company-name-and-status
 
 This endpoint shows information about all flights by air company name and flight status.
-Air company name we can set ignore the case, and it will be receptive to all matches in the name.
-`Status` and `air-company-name` we set like request param in URL
+We can specify the name of the air company partially, the search will be based on matches in the name.
+`status` and `air-company-name` we set like request param in URL
  
 <br>
 
->  GET method: /localhost:8088/api/flights/active-over-limit
+>   GET method: /localhost:8088/api/flights/active-over-limit
 
 This endpoint shows information about all `ACTIVE` flights, which last longer than 24 hours
 
 <br>
 
-<br>
-
->  GET method: /localhost:8088/api/flights/completed-overdue
+>   GET method: /localhost:8088/api/flights/completed-overdue
 
 This endpoint shows information about all `COMPLETED` flights, that were longer than the estimated flight time
 
